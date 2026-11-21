@@ -1,0 +1,1068 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Allen Xie — Senior Full-Stack & AI Engineer in Sydney. Business websites, full-stack web apps and dashboards, cloud backends on AWS & Azure, AI chatbots & RAG systems, and automation. Concept client builds and real open-source work." />
+<link rel="icon" href="data:," />
+<title>Allen Xie — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#ffffff;
+    --bg-soft:#f3f5f2;
+    --surface:#ffffff;
+    --surface-2:#eef1ed;
+    --ink:#101613;
+    --ink-2:#3d4741;
+    --ink-3:#6b7670;
+    --line:#dde3dd;
+    --line-strong:#c3ccc4;
+    --accent:#0a6b4f;
+    --accent-ink:#ffffff;
+    --accent-soft:#e3efe9;
+    --accent-2:#9a6b12;
+    --code-bg:#101613;
+    --code-ink:#d9e6dd;
+    --code-dim:#8fa398;
+    --code-hl:#7fd1ae;
+    --code-str:#e8c87a;
+    --shadow:0 1px 2px rgba(16,22,19,.05),0 10px 30px -18px rgba(16,22,19,.25);
+    --radius:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d100e;
+      --bg-soft:#121613;
+      --surface:#151916;
+      --surface-2:#1b201c;
+      --ink:#eef2ee;
+      --ink-2:#c2ccc4;
+      --ink-3:#8b968e;
+      --line:#262c27;
+      --line-strong:#39423b;
+      --accent:#3ecf9b;
+      --accent-ink:#08110c;
+      --accent-soft:#173528;
+      --accent-2:#e0b34e;
+      --code-bg:#080a09;
+      --code-ink:#d9e6dd;
+      --code-dim:#7d8f83;
+      --code-hl:#7fd1ae;
+      --code-str:#e8c87a;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 12px 32px -18px rgba(0,0,0,.7);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--accent);color:var(--accent-ink)}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .serif{font-family:"Source Serif 4",Georgia,serif}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-in{display:flex;align-items:center;gap:8px;min-height:58px}
+  .topbar .who{font-weight:800;letter-spacing:-.01em;font-size:15.5px;color:var(--ink);margin-right:auto}
+  .topbar .who span{color:var(--accent)}
+  .topbar nav{display:flex;gap:2px;flex-wrap:wrap}
+  .topbar nav a{
+    color:var(--ink-2);font-size:14.5px;font-weight:600;
+    padding:10px 12px;min-height:44px;display:inline-flex;align-items:center;border-radius:8px;
+  }
+  .topbar nav a:hover{color:var(--ink);text-decoration:none;background:var(--surface-2)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    min-height:46px;padding:11px 20px;border-radius:10px;
+    font:inherit;font-weight:700;font-size:15px;cursor:pointer;border:1px solid transparent;
+    transition:transform .12s ease,background .15s ease,border-color .15s ease;
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn-solid{background:var(--accent);color:var(--accent-ink)}
+  .btn-solid:hover{background:color-mix(in srgb,var(--accent) 88%,#000);text-decoration:none}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+  .btn-ghost:hover{background:var(--surface-2);text-decoration:none}
+  .btn-sm{min-height:40px;padding:8px 14px;font-size:14px}
+  .topbar .btn{margin-left:8px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:64px 0 8px}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .95fr;gap:48px;align-items:start}
+  .status{
+    display:inline-flex;align-items:center;gap:9px;
+    border:1px solid var(--line-strong);border-radius:999px;
+    padding:7px 14px 7px 10px;font-size:13.5px;font-weight:600;color:var(--ink-2);
+    background:var(--surface);
+  }
+  .status .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+  h1{
+    font-family:"Source Serif 4",Georgia,serif;font-weight:600;
+    font-size:clamp(40px,5.6vw,62px);line-height:1.06;letter-spacing:-.015em;
+    margin:22px 0 6px;
+  }
+  h1 .name-line{display:block}
+  h1 em{font-style:italic;color:var(--accent)}
+  .hero-sub{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:34em;margin:16px 0 0}
+  .hero-sub strong{color:var(--ink)}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+  .hero-facts{
+    display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:30px;padding-top:22px;
+    border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-2);
+  }
+  .hero-facts b{color:var(--ink)}
+  .hero-facts .mono{font-size:13.5px}
+
+  .terminal{
+    background:var(--code-bg);border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow);border:1px solid var(--line);
+  }
+  .terminal-bar{
+    display:flex;align-items:center;gap:7px;padding:12px 16px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .terminal-bar i{width:11px;height:11px;border-radius:50%;background:#3a443c;display:block}
+  .terminal-bar i:first-child{background:#5a4a3a}
+  .terminal-bar span{margin-left:8px;font-size:12.5px;color:var(--code-dim)}
+  .terminal pre{
+    margin:0;padding:20px 20px 22px;overflow-x:auto;
+    font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    font-size:13.8px;line-height:1.75;color:var(--code-ink);
+  }
+  .terminal .c{color:var(--code-dim)}
+  .terminal .k{color:var(--code-hl)}
+  .terminal .s{color:var(--code-str)}
+  .terminal .ok{color:var(--code-hl)}
+  .hero-note{font-size:13.5px;color:var(--ink-3);margin:12px 2px 0}
+
+  /* ---------- sections ---------- */
+  section{padding:64px 0 8px}
+  .sec-head{max-width:46em;margin-bottom:30px}
+  .sec-head h2{
+    font-family:"Source Serif 4",Georgia,serif;font-weight:600;
+    font-size:clamp(29px,3.6vw,38px);line-height:1.15;letter-spacing:-.01em;margin:0 0 10px;
+  }
+  .sec-head p{color:var(--ink-2);margin:0;font-size:17px}
+
+  /* services */
+  .svc-list{border-top:1px solid var(--line-strong)}
+  .svc{
+    display:grid;grid-template-columns:64px 1fr 1.1fr;gap:8px 28px;
+    padding:30px 4px;border-bottom:1px solid var(--line);
+  }
+  .svc-num{font-family:"IBM Plex Mono",monospace;font-size:14px;color:var(--accent);font-weight:600;padding-top:6px}
+  .svc h3{font-family:"Source Serif 4",Georgia,serif;font-size:24px;font-weight:600;margin:0 0 8px;line-height:1.2}
+  .svc p{margin:0;color:var(--ink-2);font-size:15.8px}
+  .svc .fit{margin-top:12px;font-size:14px;color:var(--ink-3)}
+  .svc .fit b{color:var(--ink-2)}
+  .svc ul{margin:4px 0 0;padding:0;list-style:none}
+  .svc li{
+    padding:9px 0 9px 26px;position:relative;font-size:15.5px;color:var(--ink-2);
+    border-bottom:1px dashed var(--line);
+  }
+  .svc li:last-child{border-bottom:none}
+  .svc li::before{
+    content:"";position:absolute;left:2px;top:17px;width:12px;height:7px;
+    border-left:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);
+    transform:rotate(-45deg) translateY(-2px);
+  }
+  .svc li b{color:var(--ink)}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+  .tag{
+    font-family:"IBM Plex Mono",monospace;font-size:12.3px;font-weight:500;
+    border:1px solid var(--line-strong);border-radius:999px;padding:4px 11px;color:var(--ink-2);
+    background:var(--surface);
+  }
+
+  /* work */
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .chip{
+    font:inherit;font-size:14px;font-weight:600;cursor:pointer;
+    min-height:40px;padding:8px 16px;border-radius:999px;
+    border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-2);
+  }
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 24px 20px;box-shadow:var(--shadow);display:flex;flex-direction:column;
+  }
+  .card[hidden]{display:none}
+  .card .kind{font-family:"IBM Plex Mono",monospace;font-size:12.3px;font-weight:600;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+  .card h3{font-size:19.5px;font-weight:700;letter-spacing:-.01em;margin:8px 0 8px;line-height:1.3}
+  .card p{margin:0;color:var(--ink-2);font-size:15.3px;flex:1}
+  .card .tags{margin-top:16px}
+  .card .card-link{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;font-weight:700}
+  .card .card-link a{display:inline-flex;align-items:center;gap:6px;min-height:36px}
+  .oss{
+    margin-top:18px;border:1px solid var(--line-strong);border-radius:var(--radius);
+    background:var(--bg-soft);padding:26px 28px;
+    display:grid;grid-template-columns:1fr auto;gap:14px 30px;align-items:center;
+  }
+  .oss h3{font-family:"Source Serif 4",Georgia,serif;font-size:22px;font-weight:600;margin:0 0 6px}
+  .oss p{margin:0;color:var(--ink-2);font-size:15.5px;max-width:52em}
+  .oss .mono{font-size:13px}
+
+  /* case builds */
+  .case-note{
+    display:flex;gap:12px;align-items:flex-start;
+    border:1px solid var(--line-strong);border-radius:10px;background:var(--accent-soft);
+    padding:14px 16px;margin-bottom:22px;font-size:14.5px;color:var(--ink-2);line-height:1.55;
+  }
+  .case-note b{color:var(--ink)}
+  .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .case-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;
+  }
+  .case-visual{
+    padding:20px 22px 16px;background:var(--code-bg);color:var(--code-ink);
+    font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:12.8px;line-height:1.7;
+    min-height:132px;
+  }
+  .case-visual .cv-label{color:var(--code-dim);letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+  .case-visual .cv-q{color:var(--code-str)}
+  .case-visual .cv-a{color:var(--code-ink)}
+  .case-visual .cv-src{color:var(--code-hl)}
+  .case-body{padding:22px 24px 20px;display:flex;flex-direction:column;flex:1}
+  .case-body .kind{font-family:"IBM Plex Mono",monospace;font-size:12.3px;font-weight:600;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+  .case-body h3{font-size:20px;font-weight:700;letter-spacing:-.01em;margin:8px 0 8px;line-height:1.3}
+  .case-body p{margin:0;color:var(--ink-2);font-size:15.3px}
+  .case-rows{margin:16px 0 0;border-top:1px solid var(--line)}
+  .case-row{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+  .case-row dt{font-weight:700;color:var(--ink-3);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
+  .case-row dd{margin:0;color:var(--ink-2)}
+  .case-row dd b{color:var(--ink)}
+  .case-foot{margin-top:auto;padding-top:16px;display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+  .case-time{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--ink-3)}
+  .case-foot a{font-size:14.5px;font-weight:700}
+
+  /* process */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .step{border-top:3px solid var(--ink);padding-top:16px}
+  .step .n{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--accent);font-weight:600}
+  .step h3{font-size:17.5px;margin:8px 0 6px;font-weight:700}
+  .step p{margin:0;font-size:14.8px;color:var(--ink-2)}
+
+  /* stack + about */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:44px}
+  .stack-group{margin-bottom:20px}
+  .stack-group h3{font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);margin:0 0 10px}
+  .about p{color:var(--ink-2);margin:0 0 14px;font-size:16.5px}
+  .about p strong{color:var(--ink)}
+  .about-list{margin:18px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+  .about-list li{display:flex;justify-content:space-between;gap:18px;padding:11px 2px;border-bottom:1px solid var(--line);font-size:15px}
+  .about-list li span:first-child{color:var(--ink-3)}
+  .about-list li span:last-child{font-weight:600;text-align:right}
+
+  /* hire / brief builder */
+  .hire{
+    background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    margin-top:72px;padding:56px 0 64px;
+  }
+  .hire-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+  .hire h2{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:clamp(29px,3.6vw,38px);line-height:1.15;margin:0 0 12px}
+  .hire .lede{color:var(--ink-2);font-size:17px;margin:0 0 22px}
+  .contact-rows{display:grid;gap:10px}
+  .contact-row{
+    display:flex;align-items:center;gap:12px;background:var(--surface);
+    border:1px solid var(--line);border-radius:10px;padding:10px 10px 10px 16px;min-height:56px;
+  }
+  .contact-row .lbl{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);width:64px;flex:none}
+  .contact-row .val{font-weight:600;font-size:15px;overflow-wrap:anywhere}
+  .contact-row .btn{margin-left:auto;flex:none}
+  .hire-note{font-size:14px;color:var(--ink-3);margin-top:16px}
+
+  .brief{background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
+  .brief h3{margin:0 0 4px;font-size:18px;font-weight:800;letter-spacing:-.01em}
+  .brief .sub{margin:0 0 20px;color:var(--ink-3);font-size:14px}
+  .field{margin-bottom:18px}
+  .field > span{display:block;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);margin-bottom:9px}
+  .opt-row{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{
+    font:inherit;font-size:14.5px;font-weight:600;cursor:pointer;text-align:left;
+    min-height:44px;padding:10px 15px;border-radius:10px;
+    border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-2);
+  }
+  .opt[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
+  .brief textarea{
+    width:100%;font:inherit;font-size:15.5px;color:var(--ink);
+    background:var(--bg);border:1px solid var(--line-strong);border-radius:10px;
+    padding:12px 14px;min-height:96px;resize:vertical;
+  }
+  .brief textarea::placeholder{color:var(--ink-3)}
+  .brief-out{
+    background:var(--code-bg);color:var(--code-ink);border-radius:10px;
+    padding:16px 18px;font-family:"IBM Plex Mono",monospace;font-size:13.3px;line-height:1.7;
+    white-space:pre-wrap;overflow-wrap:anywhere;min-height:110px;
+  }
+  .brief-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .copied{font-size:14px;font-weight:600;color:var(--accent);align-self:center;min-height:20px}
+
+  /* faq */
+  .faq{border-top:1px solid var(--line-strong)}
+  details{border-bottom:1px solid var(--line)}
+  summary{
+    cursor:pointer;font-weight:700;font-size:16.5px;padding:18px 34px 18px 2px;position:relative;list-style:none;
+    min-height:44px;display:flex;align-items:center;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:6px;font-size:22px;font-weight:400;color:var(--accent)}
+  details[open ] summary::after{content:"–"}
+  details p{margin:0 0 18px;color:var(--ink-2);max-width:52em;font-size:15.8px}
+
+  footer{padding:44px 0 56px}
+  .foot-in{display:flex;flex-wrap:wrap;gap:14px 30px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:26px}
+  footer p{margin:0;font-size:14px;color:var(--ink-3)}
+  footer nav{display:flex;gap:4px;flex-wrap:wrap}
+  footer nav a{color:var(--ink-2);font-weight:600;font-size:14.5px;padding:10px 10px;min-height:40px;display:inline-flex;align-items:center}
+
+  /* Content is always visible — no scroll-gated reveal, so nothing can
+     render blank in full-page captures, print, or with JS disabled. */
+
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:34px}
+    .svc{grid-template-columns:1fr;gap:6px}
+    .svc-num{padding-top:0}
+    .steps{grid-template-columns:1fr 1fr}
+    .two-col{grid-template-columns:1fr;gap:34px}
+    .hire-grid{grid-template-columns:1fr;gap:34px}
+    .oss{grid-template-columns:1fr}
+  }
+  @media (max-width:620px){
+    body{font-size:16px}
+    .wrap{padding:0 18px}
+    .hero{padding-top:42px}
+    section{padding-top:48px}
+    .work-grid{grid-template-columns:1fr}
+    .case-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .topbar-in{flex-wrap:wrap;padding:8px 0}
+    .topbar nav{margin-left:auto}
+    .topbar nav a{padding:10px 8px;font-size:13.5px}
+    .topbar .who{font-size:14.5px;white-space:nowrap}
+    .topbar .btn{display:none}
+    .hero-cta .btn{flex:1 1 auto}
+    .brief{padding:20px}
+    .contact-row .btn{padding:8px 10px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="who" href="#top" style="text-decoration:none">Allen Xie <span>·</span> Sydney</a>
+    <nav aria-label="Page sections">
+      <a href="#services">Services</a>
+      <a href="#cases">Case builds</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="btn btn-solid btn-sm" href="#hire">Hire me</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="status"><span class="dot" aria-hidden="true"></span> Senior engineer · Available for freelance projects</span>
+        <h1>
+          <span class="name-line">Allen Xie</span>
+          Senior full-stack &amp; <em>AI engineer</em>
+        </h1>
+        <p class="hero-sub">
+          I design and build production systems — <strong>business websites and full-stack apps with admin dashboards</strong>,
+          <strong>cloud backends on AWS &amp; Azure</strong>,
+          <strong>AI chatbots that answer from your own documents</strong>, and
+          <strong>automations that remove repetitive manual work</strong>. Not everything needs AI —
+          I’ll recommend the simplest build that solves the problem. Senior-level
+          architecture, testing and handover, without agency overhead.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#hire">Start a project</a>
+          <a class="btn btn-ghost" href="#work">See the work</a>
+          <a class="btn btn-ghost" href="https://github.com/Allen5288" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+        <div class="hero-facts">
+          <span><b>Based in</b> Sydney, Australia</span>
+          <span><b>Works</b> Australia-wide &amp; remote worldwide</span>
+          <span><b>Languages</b> English · 中文</span>
+          <span class="mono">React · FastAPI · AWS · Azure</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="terminal" role="img" aria-label="Summary of Allen Xie's skills and current focus, shown as a terminal profile">
+          <div class="terminal-bar" aria-hidden="true"><i></i><i></i><i></i><span>allen@xie — profile</span></div>
+          <pre><span class="c"># whoami</span>
+<span class="k">name</span>     Allen Xie (Yuanxin Xie)
+<span class="k">role</span>     Senior Full-Stack &amp; AI Engineer
+<span class="k">base</span>     Sydney, AU — remote friendly
+
+<span class="c"># what I ship</span>
+<span class="k">ai</span>       RAG chatbots · document Q&amp;A
+         evaluation &amp; guardrails
+<span class="k">web</span>      React + FastAPI apps
+         admin dashboards · APIs
+<span class="k">cloud</span>    AWS · Azure Functions
+         Cosmos DB · Service Bus
+<span class="k">cases</span>    Clinic AI · Real-estate site
+         Cloud backend · Booking site
+         Stock dashboard — see below ↓
+
+<span class="c"># latest</span>
+<span class="ok">✓</span> Open-source PR open at <span class="s">facebook/react</span>
+<span class="ok">✓</span> Meta CLA signed contributor</pre>
+        </div>
+        <p class="hero-note">The engineering proof is public — the code is on GitHub and the React contribution is open for anyone to read. Case builds below are clearly labelled concepts.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Senior engineering, four ways</h2>
+        <p>Most enquiries are ordinary, practical ones — a proper website, a system to run the business on, a cloud backend that doesn’t fall over — with AI added where it genuinely helps. Fixed scope, plain-English updates, short realistic timelines, and code you own at the end. Pick the one that matches your problem, see it as a complete case build below, or describe the problem in the brief builder and I’ll tell you honestly if I’m not the right fit.</p>
+      </div>
+
+      <div class="svc-list">
+        <article class="svc reveal">
+          <div class="svc-num">01</div>
+          <div>
+            <h3>AI chatbots &amp; RAG systems</h3>
+            <p>An assistant that answers questions from <em>your</em> documents — manuals, policies, product catalogues, FAQs — instead of making things up. Built with retrieval, citations and an evaluation set, so you can see how accurate it actually is.</p>
+            <p class="fit"><b>Good fit for:</b> clinics, real-estate agencies, training providers, and any team whose staff answer the same questions all day.</p>
+            <p class="fit"><b>Typical timeline:</b> working prototype in 3–5 days · live in 1–2 weeks</p>
+            <div class="tags"><span class="tag">RAG</span><span class="tag">Vector search</span><span class="tag">LLM APIs</span><span class="tag">Evaluation</span><span class="tag">FastAPI</span></div>
+          </div>
+          <ul>
+            <li><b>Document pipeline</b> — PDFs, Word, web pages and spreadsheets ingested and kept up to date</li>
+            <li><b>Chat interface</b> — embeddable on your website or used internally by staff</li>
+            <li><b>Answers with sources</b> — every reply cites the document it came from</li>
+            <li><b>Accuracy testing</b> — a golden test set measures answer quality before launch</li>
+          </ul>
+        </article>
+
+        <article class="svc reveal">
+          <div class="svc-num">02</div>
+          <div>
+            <h3>Full-stack websites &amp; dashboards</h3>
+            <p>A complete web application: a fast public site, a secure login area, and an admin dashboard where you manage content, customers or orders yourself — no developer needed for day-to-day changes.</p>
+            <p class="fit"><b>Good fit for:</b> businesses running on spreadsheets and shared inboxes, or with an old site that can’t do bookings, accounts or payments.</p>
+            <p class="fit"><b>Typical timeline:</b> business website in 5–7 days · website + dashboard in 10–14 days</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">AWS · Azure</span></div>
+          </div>
+          <ul>
+            <li><b>Public website</b> — responsive, fast-loading, easy to update</li>
+            <li><b>Admin dashboard</b> — manage users, content, bookings or inventory</li>
+            <li><b>API backend</b> — clean FastAPI services with auth and safe error handling</li>
+            <li><b>Deployed &amp; documented</b> — live on AWS or Azure, with a handover walkthrough</li>
+          </ul>
+        </article>
+
+        <article class="svc reveal">
+          <div class="svc-num">03</div>
+          <div>
+            <h3>Automation &amp; integrations</h3>
+            <p>Connect the tools you already use so information flows on its own: form submissions into your inbox and spreadsheet, invoices generated automatically, systems that retry safely instead of silently dropping work.</p>
+            <p class="fit"><b>Good fit for:</b> anyone copying data between forms, email, sheets and accounting tools by hand.</p>
+            <p class="fit"><b>Typical timeline:</b> most automations live in 3–7 days</p>
+            <div class="tags"><span class="tag">API integration</span><span class="tag">Azure Functions</span><span class="tag">Queues &amp; DLQ</span><span class="tag">Webhooks</span><span class="tag">Python</span></div>
+          </div>
+          <ul>
+            <li><b>Form → workflow</b> — enquiries routed, acknowledged and filed automatically</li>
+            <li><b>Serverless APIs</b> — pay-per-use backends on Azure Functions or AWS</li>
+            <li><b>Reliable by design</b> — idempotency and dead-letter queues, so nothing is lost or duplicated</li>
+            <li><b>Monitoring</b> — you get told when something fails, not your customers</li>
+          </ul>
+        </article>
+
+        <article class="svc reveal">
+          <div class="svc-num">04</div>
+          <div>
+            <h3>Cloud &amp; backend systems</h3>
+            <p>The unglamorous work most businesses actually need: moving a system off an old server or a shared drive, setting up hosting properly, building the API behind a website or app, and making sure backups, security and costs are under control on AWS or Azure.</p>
+            <p class="fit"><b>Good fit for:</b> businesses outgrowing a spreadsheet, a shared drive or an ageing in-house server — or launching something new that needs a solid backend from day one.</p>
+            <p class="fit"><b>Typical timeline:</b> cloud setup or migration in 7–10 days · new backend API in 1–2 weeks</p>
+            <div class="tags"><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Serverless</span><span class="tag">APIs</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
+          </div>
+          <ul>
+            <li><b>Cloud setup &amp; migration</b> — hosting, database and files moved to AWS or Azure with minimal downtime</li>
+            <li><b>Backend APIs</b> — secure, documented services your website, app or partners connect to</li>
+            <li><b>Backups &amp; monitoring</b> — automated backups, alerts and a recovery plan you can actually follow</li>
+            <li><b>Cost control</b> — right-sized, pay-per-use where it fits, with a plain-English monthly cost estimate</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CASE BUILDS ================= -->
+  <section id="cases">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Client-style case builds</h2>
+        <p>The kinds of systems clients actually ask for — shown as complete builds, not learning exercises. Most are everyday work: a proper business website, a full-stack system to run things on, a cloud move done safely. AI appears in two of the six, where it earns its place — the rest deliberately don’t use it. Timelines are short but real: they assume your content and logins are ready, and I’ll confirm the exact schedule in the fixed quote.</p>
+      </div>
+
+      <div class="case-note" role="note">
+        <span aria-hidden="true">◆</span>
+        <span><b>How to read these:</b> Concept case studies with illustrative business names. They are not past client projects — they show the problem, the build and what you would receive, so you can judge the work before we start. The engineering proof underneath them is real and public, in the section below.</span>
+      </div>
+
+      <div class="case-grid">
+
+        <article class="case-card reveal">
+          <div class="case-visual" aria-hidden="true">
+            <div class="cv-label">Patient question</div>
+            <div class="cv-q">“Do you bulk-bill, and what should I bring to my first physio visit?”</div>
+            <div class="cv-a">→ Answered from the clinic’s own fees &amp; prep guide</div>
+            <div class="cv-src">Source: Patient Info Pack, p.2 · Fees Schedule 2026</div>
+          </div>
+          <div class="case-body">
+            <span class="kind">Healthcare · AI Chatbot</span>
+            <h3>Physio clinic — website assistant that answers from clinic documents</h3>
+            <p>A Sydney physio clinic fields the same calls all day: prices, hours, bulk-billing, exercise handouts. This build puts a sourced assistant on the website and gives reception a dashboard to update it.</p>
+            <dl class="case-rows">
+              <div class="case-row"><dt>Problem</dt><dd>Staff time lost to repeat questions; answers scattered across PDFs and the website.</dd></div>
+              <div class="case-row"><dt>Build</dt><dd><b>RAG chatbot</b> over fees, policies and exercise sheets, with citations, a “not in our documents” fallback, and an admin page to re-index new files.</dd></div>
+              <div class="case-row"><dt>You receive</dt><dd>Embedded chat widget, document pipeline, evaluation set from real patient FAQs, and a handover guide for reception staff.</dd></div>
+            </dl>
+            <div class="tags"><span class="tag">RAG</span><span class="tag">FastAPI</span><span class="tag">React widget</span><span class="tag">Evaluation</span></div>
+            <div class="case-foot"><span class="case-time">Prototype 3–5 days · Live in 1–2 weeks</span><a href="#hire">Build one like this →</a></div>
+          </div>
+        </article>
+
+        <article class="case-card reveal">
+          <div class="case-visual" aria-hidden="true">
+            <div class="cv-label">Enquiry flow</div>
+            <div class="cv-q">Website enquiry → qualified → CRM + email + follow-up task</div>
+            <div class="cv-a">→ No copy-pasting between inbox, spreadsheet and CRM</div>
+            <div class="cv-src">Status: routed · acknowledged · filed automatically</div>
+          </div>
+          <div class="case-body">
+            <span class="kind">Real Estate · Full-Stack Website</span>
+            <h3>Real-estate agency — listings website with agent dashboard</h3>
+            <p>An agency taking enquiries by phone, email and three listing portals needs one place to see and follow up every lead — and a site its own team can update without a developer. No AI needed: this is solid full-stack work.</p>
+            <dl class="case-rows">
+              <div class="case-row"><dt>Problem</dt><dd>Leads missed between inboxes; listings updated in multiple places by hand.</dd></div>
+              <div class="case-row"><dt>Build</dt><dd><b>React listings site + admin dashboard</b> for properties and agents, with enquiry routing built in — each lead lands with the right agent, acknowledged and tracked, instead of sitting in a shared inbox.</dd></div>
+              <div class="case-row"><dt>You receive</dt><dd>Public site, agent dashboard, enquiry pipeline with duplicate protection, and reporting on response time.</dd></div>
+            </dl>
+            <div class="tags"><span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Dashboard</span></div>
+            <div class="case-foot"><span class="case-time">Typical build · 10–14 days</span><a href="#hire">Build one like this →</a></div>
+          </div>
+        </article>
+
+        <article class="case-card reveal">
+          <div class="case-visual" aria-hidden="true">
+            <div class="cv-label">Stock dashboard</div>
+            <div class="cv-q">SKU 1842 · Parramatta — 14 in stock · Reorder at 5</div>
+            <div class="cv-a">→ Updated from a phone on the shop floor, not a shared spreadsheet</div>
+            <div class="cv-src">Orders today: 23 · Low-stock alerts: 3 · Last sync: just now</div>
+          </div>
+          <div class="case-body">
+            <span class="kind">Retail · Full-Stack System</span>
+            <h3>Retail store — online catalogue and stock dashboard</h3>
+            <p>A small retailer outgrows its spreadsheet: stock is wrong, orders live in email, and only one person can update anything at a time. This build replaces that with one proper system — no AI, just the right tool.</p>
+            <dl class="case-rows">
+              <div class="case-row"><dt>Problem</dt><dd>Stock spreadsheet always out of date or locked by someone else; no single view of orders.</dd></div>
+              <div class="case-row"><dt>Build</dt><dd><b>Public catalogue site + staff dashboard</b> — products, stock levels and orders in one database, updated from a phone, with low-stock alerts and role-based access.</dd></div>
+              <div class="case-row"><dt>You receive</dt><dd>Catalogue website, stock &amp; order dashboard with audit history, and a simple update process the manager owns.</dd></div>
+            </dl>
+            <div class="tags"><span class="tag">React</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Dashboard</span></div>
+            <div class="case-foot"><span class="case-time">Typical build · 1–2 weeks</span><a href="#hire">Build one like this →</a></div>
+          </div>
+        </article>
+
+        <article class="case-card reveal">
+          <div class="case-visual" aria-hidden="true">
+            <div class="cv-label">Student question</div>
+            <div class="cv-q">“When does the next intake start, and can I pay in instalments?”</div>
+            <div class="cv-a">→ Answered from the course handbook, then offered enrolment</div>
+            <div class="cv-src">Source: Student Handbook · Intake Calendar 2027</div>
+          </div>
+          <div class="case-body">
+            <span class="kind">Education · Website + AI Add-On</span>
+            <h3>Training provider — course website, enrolment, plus a handbook assistant</h3>
+            <p>The core job is a proper course website with online enrolment. The AI assistant is an add-on on top — it answers dates, prerequisites, fees and payment-plan questions from the handbook, out of hours.</p>
+            <dl class="case-rows">
+              <div class="case-row"><dt>Problem</dt><dd>Enquiries answered slowly out of hours; enrolment details re-typed into multiple systems.</dd></div>
+              <div class="case-row"><dt>Build</dt><dd><b>Course website + serverless enrolment API</b> — idempotent, with a dead-letter queue so a failed submission is never silently lost — plus a handbook-grounded assistant on the course pages.</dd></div>
+              <div class="case-row"><dt>You receive</dt><dd>Course website, enrolment form + API, admin view of applications, failure alerts for staff, and the assistant as a phase-two add-on.</dd></div>
+            </dl>
+            <div class="tags"><span class="tag">React</span><span class="tag">Azure Functions</span><span class="tag">RAG add-on</span><span class="tag">DLQ</span></div>
+            <div class="case-foot"><span class="case-time">Website + enrolment · 10–14 days · Assistant adds ~1 week</span><a href="#hire">Build one like this →</a></div>
+          </div>
+        </article>
+
+        <article class="case-card reveal">
+          <div class="case-visual" aria-hidden="true">
+            <div class="cv-label">Online booking</div>
+            <div class="cv-q">Customer picks a service &amp; time → confirmed by SMS + email</div>
+            <div class="cv-a">→ Job lands in the calendar — no phone tag, no double-booking</div>
+            <div class="cv-src">Quote request · Deposit link · Reminder the day before</div>
+          </div>
+          <div class="case-body">
+            <span class="kind">Trades &amp; Services · Business Website</span>
+            <h3>Local services business — website with online booking &amp; quotes</h3>
+            <p>The most common enquiry of all: a clean, fast website that turns visitors into booked jobs. No AI, no dashboard sprawl — just services, photos of real work, online booking and quote requests that reach the owner instantly.</p>
+            <dl class="case-rows">
+              <div class="case-row"><dt>Problem</dt><dd>Work comes only by phone and word of mouth; missed calls mean missed jobs, and the old site doesn’t work well on phones.</dd></div>
+              <div class="case-row"><dt>Build</dt><dd><b>Mobile-first business website</b> with service pages, a booking calendar, quote-request forms with photo upload, and Google Maps / reviews wired in.</dd></div>
+              <div class="case-row"><dt>You receive</dt><dd>Live website, booking + quote system, simple page editor for prices and photos, and basic SEO setup so locals can find you.</dd></div>
+            </dl>
+            <div class="tags"><span class="tag">React</span><span class="tag">Booking</span><span class="tag">Forms</span><span class="tag">SEO basics</span></div>
+            <div class="case-foot"><span class="case-time">Typical build · 5–7 days</span><a href="#hire">Build one like this →</a></div>
+          </div>
+        </article>
+
+        <article class="case-card reveal">
+          <div class="case-visual" aria-hidden="true">
+            <div class="cv-label">Cloud migration</div>
+            <div class="cv-q">Old office server + shared drive → Azure / AWS</div>
+            <div class="cv-a">→ Database, files &amp; API moved · Backups automated · Alerts on</div>
+            <div class="cv-src">Downtime window: one evening · Rollback plan included</div>
+          </div>
+          <div class="case-body">
+            <span class="kind">Any Industry · Cloud &amp; Backend</span>
+            <h3>Growing business — move off the old server onto the cloud</h3>
+            <p>A classic cloud enquiry: the system everyone depends on runs on one ageing machine under a desk. This build moves it to AWS or Azure properly — secure, backed up, monitored — without stopping the business.</p>
+            <dl class="case-rows">
+              <div class="case-row"><dt>Problem</dt><dd>Single point of failure, no real backups, remote staff using workarounds to reach files and systems.</dd></div>
+              <div class="case-row"><dt>Build</dt><dd><b>Planned cloud migration</b> — hosting, database and file storage moved in stages, backend API redeployed serverless where it fits, access locked down with proper logins and permissions.</dd></div>
+              <div class="case-row"><dt>You receive</dt><dd>Migrated system on AWS or Azure, automated backups + monitoring, a plain-English monthly cost estimate, and a handover doc your next IT person can follow.</dd></div>
+            </dl>
+            <div class="tags"><span class="tag">AWS · Azure</span><span class="tag">Migration</span><span class="tag">Serverless API</span><span class="tag">Backups</span></div>
+            <div class="case-foot"><span class="case-time">Typical build · 7–10 days</span><a href="#hire">Build one like this →</a></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORK ================= -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Engineering proof — real code, in public</h2>
+        <p>The production patterns behind the case builds above, as runnable open projects on my GitHub. This is the evidence, not the pitch — inspect the code before you hire me.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">All work</button>
+        <button class="chip" type="button" data-filter="ai" aria-pressed="false">AI &amp; RAG</button>
+        <button class="chip" type="button" data-filter="cloud" aria-pressed="false">Cloud &amp; APIs</button>
+        <button class="chip" type="button" data-filter="backend" aria-pressed="false">Backend craft</button>
+        <button class="chip" type="button" data-filter="devops" aria-pressed="false">DevOps</button>
+      </div>
+
+      <div class="work-grid" id="workGrid">
+        <article class="card reveal" data-cat="ai">
+          <span class="kind">AI · RAG</span>
+          <h3>Medical AI Assistant — RAG with evaluation</h3>
+          <p>A retrieval-augmented assistant over medical documents, built with a proper evaluation harness: a golden test set, measured answer quality, and a documented method for catching wrong or unsupported answers before they reach a user.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">RAG</span><span class="tag">Evaluation</span><span class="tag">Azure + AWS</span></div>
+          <div class="card-link"><a href="https://github.com/Allen5288/AI-Apps-Collection" target="_blank" rel="noopener">View AI Apps Collection on GitHub ↗</a></div>
+        </article>
+
+        <article class="card reveal" data-cat="cloud ai">
+          <span class="kind">Cloud · Azure</span>
+          <h3>Async User Register API — Azure Functions</h3>
+          <p>A serverless registration API in Python on Azure Functions, backed by Cosmos DB and Service Bus. Asynchronous by design, so sign-ups stay fast and spikes don’t take the endpoint down.</p>
+          <div class="tags"><span class="tag">Azure Functions</span><span class="tag">Python</span><span class="tag">Cosmos DB</span><span class="tag">Service Bus</span></div>
+          <div class="card-link"><a href="https://github.com/Allen5288/Azure-Apps-Collection" target="_blank" rel="noopener">View Azure Apps Collection on GitHub ↗</a></div>
+        </article>
+
+        <article class="card reveal" data-cat="cloud">
+          <span class="kind">Cloud · AWS</span>
+          <h3>Async Register API — idempotency &amp; dead-letter queue</h3>
+          <p>The AWS counterpart: an asynchronous registration service hardened for real-world retries — idempotency keys stop duplicate sign-ups, and a dead-letter queue captures failures for inspection instead of losing them.</p>
+          <div class="tags"><span class="tag">AWS</span><span class="tag">Async APIs</span><span class="tag">Idempotency</span><span class="tag">DLQ</span></div>
+          <div class="card-link"><a href="https://github.com/Allen5288/AWS-Apps-Collection" target="_blank" rel="noopener">View AWS Apps Collection on GitHub ↗</a></div>
+        </article>
+
+        <article class="card reveal" data-cat="backend">
+          <span class="kind">Backend · Python</span>
+          <h3>FastAPI in production — rate limiting &amp; more</h3>
+          <p>A growing collection of runnable FastAPI patterns, including per-client rate limiting to protect APIs from abuse — the unglamorous details that separate a demo from a service you can charge for.</p>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">Rate limiting</span><span class="tag">REST</span></div>
+          <div class="card-link"><a href="https://github.com/Allen5288/Python-Apps-Collection" target="_blank" rel="noopener">View Python Apps Collection on GitHub ↗</a></div>
+        </article>
+
+        <article class="card reveal" data-cat="backend">
+          <span class="kind">Backend · Node.js</span>
+          <h3>Safe error responses — Node.js best practice</h3>
+          <p>Error-handling patterns for Node services that return consistent, safe API errors — no stack traces or internal details leaked to clients, and enough structure for the frontend to actually handle failures gracefully.</p>
+          <div class="tags"><span class="tag">Node.js</span><span class="tag">Error handling</span><span class="tag">API design</span></div>
+          <div class="card-link"><a href="https://github.com/Allen5288/NodeJS-Apps-Collection" target="_blank" rel="noopener">View NodeJS Apps Collection on GitHub ↗</a></div>
+        </article>
+
+        <article class="card reveal" data-cat="devops">
+          <span class="kind">DevOps · Docker</span>
+          <h3>Docker multi-stage builds</h3>
+          <p>Practical multi-stage Dockerfiles that ship small, production-ready images — build tooling stays in the build stage, and only the runtime reaches production. Part of a broader DevOps practice collection.</p>
+          <div class="tags"><span class="tag">Docker</span><span class="tag">CI/CD</span><span class="tag">Containers</span></div>
+          <div class="card-link"><a href="https://github.com/Allen5288/Devops-Apps-Collection" target="_blank" rel="noopener">View DevOps Apps Collection on GitHub ↗</a></div>
+        </article>
+
+        <article class="card reveal" data-cat="ai backend">
+          <span class="kind">Background · Engineering notes</span>
+          <h3>Architecture &amp; AI notes — background reading</h3>
+          <p>Supporting notes on RAG evaluation, architecture, security and cloud design that sit behind the builds above. Useful context if you want the thinking — the case builds and runnable projects are the work itself.</p>
+          <div class="tags"><span class="tag">Architecture</span><span class="tag">AI systems</span><span class="tag">Security</span><span class="tag">Cloud</span></div>
+          <div class="card-link"><a href="https://github.com/Allen5288/AI-FullStack-Web-Platform-Knowledge-Notes" target="_blank" rel="noopener">View Knowledge Notes on GitHub ↗</a></div>
+        </article>
+
+        <article class="card reveal" data-cat="ai">
+          <span class="kind">Frontend · React</span>
+          <h3>React Apps Collection</h3>
+          <p>React and TypeScript practice builds — component patterns, state and data fetching — the frontend half of the full-stack work, kept public so clients can judge the code quality themselves.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Frontend</span></div>
+          <div class="card-link"><a href="https://github.com/Allen5288/React-Apps-Collection" target="_blank" rel="noopener">View React Apps Collection on GitHub ↗</a></div>
+        </article>
+      </div>
+
+      <div class="oss reveal">
+        <div>
+          <h3>Open-source contributor — React</h3>
+          <p>
+            I have an open pull request in <span class="mono">facebook/react</span> —
+            <span class="mono">PR #38332</span>, “Warn and treat <span class="mono">credentialless=""</span> as true” —
+            fixing how React handles an empty boolean attribute on iframes, with tests updated across
+            ReactDOMAttribute, DOMPropertyOperations and server-integration suites. I’ve signed Meta’s
+            contributor licence agreement, so my code can be accepted into Meta open-source projects.
+          </p>
+        </div>
+        <a class="btn btn-ghost" href="https://github.com/react/react/pull/38332" target="_blank" rel="noopener">Read the PR ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>How a project runs</h2>
+        <p>No surprises: you always know what’s happening, what it costs, and what you’ll own at the end.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="n">STEP 1</span>
+          <h3>Short discovery call</h3>
+          <p>We talk through the problem in plain English (or 中文). I’ll tell you if it’s a fit, what it involves, and what it should cost — before you commit to anything.</p>
+        </div>
+        <div class="step reveal">
+          <span class="n">STEP 2</span>
+          <h3>Fixed quote &amp; prototype</h3>
+          <p>You get a written, fixed-scope quote with the timeline in it — usually within 1–2 business days of the call. For AI work, I build a small working prototype on your real documents first (typically 3–5 days), so you judge results — not promises.</p>
+        </div>
+        <div class="step reveal">
+          <span class="n">STEP 3</span>
+          <h3>Build, test, show</h3>
+          <p>Built in short cycles with demos you can click every few days — most websites and systems are live within 1–2 weeks of starting. Tested properly — for AI systems that includes a measured accuracy set, not just “looks right”.</p>
+        </div>
+        <div class="step reveal">
+          <span class="n">STEP 4</span>
+          <h3>Handover &amp; support</h3>
+          <p>You receive the code, the documentation and a walkthrough. Optional ongoing maintenance is available if you’d rather not think about it again.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STACK + ABOUT ================= -->
+  <section id="about">
+    <div class="wrap two-col">
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:22px">
+          <h2>The stack</h2>
+        </div>
+        <div class="stack-group">
+          <h3>Frontend</h3>
+          <div class="tags" style="margin-top:0"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">HTML / CSS</span></div>
+        </div>
+        <div class="stack-group">
+          <h3>Backend</h3>
+          <div class="tags" style="margin-top:0"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Node.js</span><span class="tag">REST APIs</span></div>
+        </div>
+        <div class="stack-group">
+          <h3>AI</h3>
+          <div class="tags" style="margin-top:0"><span class="tag">RAG systems</span><span class="tag">LLM integration</span><span class="tag">Vector search</span><span class="tag">AI evaluation</span></div>
+        </div>
+        <div class="stack-group">
+          <h3>Cloud &amp; DevOps</h3>
+          <div class="tags" style="margin-top:0"><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">Azure Functions</span><span class="tag">Cosmos DB</span><span class="tag">Service Bus</span><span class="tag">Docker</span></div>
+        </div>
+      </div>
+
+      <div class="about reveal">
+        <div class="sec-head" style="margin-bottom:22px">
+          <h2>About</h2>
+        </div>
+        <p>I’m a <strong>senior full-stack and AI engineer based in Sydney</strong>. I work at senior level end to end: architecture and trade-offs, building, evaluation and testing, deployment, and a handover a small team can actually run. My focus is where solid engineering meets practical AI — systems that retrieve real answers from real documents, and APIs that survive retries and spikes.</p>
+        <p>I build in the open — my GitHub holds the runnable proof above, and I contribute to open source, including a current pull request in React itself. I work in <strong>English and Mandarin</strong>, which helps with clients and suppliers on both sides.</p>
+        <p>This website is where I present client work. My GitHub profile stays engineer-first — code and open source first, with freelance availability mentioned, not shouted. Freelance work here is scoped and quoted up front; if your project isn’t a good match, I’ll say so on the first call rather than after the invoice.</p>
+        <ul class="about-list">
+          <li><span>Level</span><span>Senior Full-Stack &amp; AI Engineer</span></li>
+          <li><span>Location</span><span>Sydney, NSW, Australia</span></li>
+          <li><span>Availability</span><span>Freelance projects — enquire below</span></li>
+          <li><span>Languages</span><span>English · 中文 (Mandarin)</span></li>
+          <li><span>GitHub</span><span><a href="https://github.com/Allen5288" target="_blank" rel="noopener">github.com/Allen5288 ↗</a></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HIRE ================= -->
+  <div class="hire" id="hire">
+    <div class="wrap hire-grid">
+      <div class="reveal">
+        <h2>Tell me about your project</h2>
+        <p class="lede">Use the brief builder — it takes a minute and turns your answers into a ready-to-send project brief. Or contact me directly:</p>
+        <div class="contact-rows">
+          <div class="contact-row">
+            <span class="lbl">Email</span>
+            <span class="val" id="emailVal">allen.yuanxin.xie@gmail.com</span>
+            <button class="btn btn-ghost btn-sm" type="button" id="copyEmailBtn">Copy</button>
+          </div>
+          <div class="contact-row">
+            <span class="lbl">GitHub</span>
+            <span class="val">github.com/Allen5288</span>
+            <a class="btn btn-ghost btn-sm" href="https://github.com/Allen5288" target="_blank" rel="noopener">Open ↗</a>
+          </div>
+        </div>
+        <p class="hire-note">I reply to project enquiries within one business day. Quotes are fixed-scope and in writing — no hourly meter running while we talk.</p>
+        <span class="copied" id="copyMsg" role="status" aria-live="polite"></span>
+      </div>
+
+      <div class="brief reveal" aria-label="Project brief builder">
+        <h3>Project brief builder</h3>
+        <p class="sub">Pick what fits — the brief updates as you go. Nothing is sent until you press “Email this brief”.</p>
+
+        <div class="field">
+          <span id="lblService">What do you need?</span>
+          <div class="opt-row" role="group" aria-labelledby="lblService" id="svcOpts">
+            <button class="opt" type="button" data-val="Business website" aria-pressed="false">Business website</button>
+            <button class="opt" type="button" data-val="Full-stack website + dashboard" aria-pressed="true">Website + dashboard</button>
+            <button class="opt" type="button" data-val="Cloud / backend / migration" aria-pressed="false">Cloud / backend</button>
+            <button class="opt" type="button" data-val="AI chatbot / RAG system" aria-pressed="false">AI chatbot / RAG</button>
+            <button class="opt" type="button" data-val="Automation / integration" aria-pressed="false">Automation</button>
+            <button class="opt" type="button" data-val="Something else" aria-pressed="false">Something else</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span id="lblBudget">Budget range (AUD)</span>
+          <div class="opt-row" role="group" aria-labelledby="lblBudget" id="budgetOpts">
+            <button class="opt" type="button" data-val="Under $1,000" aria-pressed="false">Under $1,000</button>
+            <button class="opt" type="button" data-val="$1,000 – $3,000" aria-pressed="true">$1,000 – $3,000</button>
+            <button class="opt" type="button" data-val="$3,000 – $8,000" aria-pressed="false">$3,000 – $8,000</button>
+            <button class="opt" type="button" data-val="$8,000+" aria-pressed="false">$8,000+</button>
+            <button class="opt" type="button" data-val="Not sure yet" aria-pressed="false">Not sure yet</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span id="lblTime">When do you want to start?</span>
+          <div class="opt-row" role="group" aria-labelledby="lblTime" id="timeOpts">
+            <button class="opt" type="button" data-val="As soon as possible" aria-pressed="true">ASAP</button>
+            <button class="opt" type="button" data-val="Within the next month" aria-pressed="false">Within a month</button>
+            <button class="opt" type="button" data-val="In 1–3 months" aria-pressed="false">In 1–3 months</button>
+            <button class="opt" type="button" data-val="Just exploring" aria-pressed="false">Just exploring</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span><label for="briefDetails">In your own words — what should it do?</label></span>
+          <textarea id="briefDetails" placeholder="e.g. We run a small services business. We need a proper website with online booking, and our stock list still lives in a spreadsheet we’d like turned into a simple dashboard…"></textarea>
+        </div>
+
+        <div class="brief-out" id="briefOut" aria-live="polite"></div>
+
+        <div class="brief-actions">
+          <a class="btn btn-solid" id="mailtoBtn" href="#">Email this brief</a>
+          <button class="btn btn-ghost" type="button" id="copyBriefBtn">Copy brief</button>
+          <span class="copied" id="briefMsg" role="status" aria-live="polite"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <h2>Common questions</h2>
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary>Are the case builds past client projects?</summary>
+          <p>No — they’re labelled concept case studies on purpose. They show complete, realistic builds I can deliver with the stack and patterns in my public code, using illustrative business names. For AI work I prototype on your real documents first, so you judge a working result on your own material before committing to a full build.</p>
+        </details>
+        <details>
+          <summary>How much does a project cost?</summary>
+          <p>Every project is quoted fixed-scope after a short discovery call, so you know the full price before work starts. Small, well-defined jobs cost less than open-ended builds — the honest answer depends on scope, which is exactly what the call is for. There’s no charge for the call or the quote.</p>
+        </details>
+        <details>
+          <summary>How long does a typical project take?</summary>
+          <p>Shorter than most people expect, because the scope is fixed up front: a business website is typically live in 5–7 days, a website with a dashboard or a cloud migration in about 7–14 days, most automations in 3–7 days, and an AI chatbot goes from a working prototype in 3–5 days to live in 1–2 weeks. Those ranges assume your content, documents and logins are ready when we start — the fixed quote confirms your exact timeline before any work begins.</p>
+        </details>
+        <details>
+          <summary>Does my project need AI?</summary>
+          <p>Often, no — and I’ll tell you if that’s the case. A well-built website, dashboard or cloud backend solves most business problems on its own. AI earns its place when staff answer the same document-based questions all day, or customers need answers out of hours. It can usually be added later, on top of a solid system, rather than built into everything from day one.</p>
+        </details>
+        <details>
+          <summary>How accurate is an AI chatbot, really?</summary>
+          <p>It depends on your documents — which is why I build an evaluation set from your real questions and measure the answers before launch. The chatbot answers from your documents and cites its sources; when the answer isn’t in your documents, it says so instead of inventing one.</p>
+        </details>
+        <details>
+          <summary>Do I own the code and the data?</summary>
+          <p>Yes. The code, the deployment and your documents are yours. Your documents are used only to build and run your system — they aren’t shared or reused for other clients.</p>
+        </details>
+        <details>
+          <summary>Can you work with my existing website or tools?</summary>
+          <p>Usually, yes. Chatbots can be embedded into an existing site, and automations are built around the tools you already use — forms, email, spreadsheets, accounting software. Tell me what you run on the discovery call and I’ll confirm what’s possible.</p>
+        </details>
+        <details>
+          <summary>Where are you based, and do you work remotely?</summary>
+          <p>I’m based in Sydney and work with clients across Australia and remotely worldwide. I’m available in English and Mandarin.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <p>© 2026 Allen Xie · Sydney, Australia · Senior Full-Stack &amp; AI Engineer</p>
+    <nav aria-label="Footer">
+      <a href="#services">Services</a>
+      <a href="#cases">Case builds</a>
+      <a href="#work">Work</a>
+      <a href="#hire">Hire me</a>
+      <a href="https://github.com/Allen5288" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- project filter ---------- */
+  var chips = document.querySelectorAll(".chip");
+  var cards = document.querySelectorAll("#workGrid .card");
+  chips.forEach(function(chip){
+    chip.addEventListener("click", function(){
+      chips.forEach(function(c){ c.setAttribute("aria-pressed", "false"); });
+      chip.setAttribute("aria-pressed", "true");
+      var f = chip.getAttribute("data-filter");
+      cards.forEach(function(card){
+        var cats = (card.getAttribute("data-cat") || "").split(" ");
+        card.hidden = !(f === "all" || cats.indexOf(f) !== -1);
+      });
+    });
+  });
+
+  /* ---------- copy helper ---------- */
+  function copyText(text, msgEl, msg){
+    function done(){ msgEl.textContent = msg; setTimeout(function(){ msgEl.textContent = ""; }, 2600); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); done(); } catch(e){ msgEl.textContent = "Copy failed — select the text manually."; }
+      document.body.removeChild(ta);
+    }
+  }
+
+  var email = "allen.yuanxin.xie@gmail.com";
+  document.getElementById("copyEmailBtn").addEventListener("click", function(){
+    copyText(email, document.getElementById("copyMsg"), "Email address copied.");
+  });
+
+  /* ---------- brief builder ---------- */
+  var state = {
+    service: "Full-stack website + dashboard",
+    budget: "$1,000 – $3,000",
+    timeline: "As soon as possible"
+  };
+  function wireGroup(id, key){
+    var group = document.getElementById(id);
+    group.querySelectorAll(".opt").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        group.querySelectorAll(".opt").forEach(function(b){ b.setAttribute("aria-pressed", "false"); });
+        btn.setAttribute("aria-pressed", "true");
+        state[key] = btn.getAttribute("data-val");
+        renderBrief();
+      });
+    });
+  }
+  wireGroup("svcOpts", "service");
+  wireGroup("budgetOpts", "budget");
+  wireGroup("timeOpts", "timeline");
+
+  var detailsEl = document.getElementById("briefDetails");
+  detailsEl.addEventListener("input", renderBrief);
+
+  function briefText(){
+    var lines = [
+      "PROJECT BRIEF — for Allen Xie",
+      "------------------------------",
+      "What I need:  " + state.service,
+      "Budget (AUD): " + state.budget,
+      "Start:        " + state.timeline,
+      ""
+    ];
+    var d = detailsEl.value.trim();
+    lines.push("About the project:");
+    lines.push(d ? d : "(Add a few lines about what it should do, who it's for, and any tools or documents involved.)");
+    return lines.join("\n");
+  }
+  function renderBrief(){
+    document.getElementById("briefOut").textContent = briefText();
+    var subject = encodeURIComponent("Project enquiry — " + state.service);
+    var body = encodeURIComponent(briefText() + "\n\n— Sent from the brief builder on Allen Xie's portfolio page");
+    document.getElementById("mailtoBtn").setAttribute("href", "mailto:" + email + "?subject=" + subject + "&body=" + body);
+  }
+  renderBrief();
+
+  document.getElementById("copyBriefBtn").addEventListener("click", function(){
+    copyText(briefText(), document.getElementById("briefMsg"), "Brief copied — paste it into any email or message.");
+  });
+})();
+</script>
+</body>
+</html>
